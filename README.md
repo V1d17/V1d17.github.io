@@ -1,6 +1,10 @@
 # bezel
 
-A new Flutter project.
+Bezel watch modal.
+
+Find it published here : https://v1d17.github.io/bezel_modal_web/
+
+Note: If it doesnt load, try opening it in a private window.
 
 ## Getting Started
 
