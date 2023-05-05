@@ -17,7 +17,7 @@ Future<Map> fetchInfo() async {
 
 Future<int> acceptOrder() async {
   final url =
-      'https://d2db8470c18e.mock.pstmn.io/marketplace/orders/123/accept';
+      'https://eb863a74-7a4e-4daf-9540-d2db8470c18e.mock.pstmn.io/marketplace/orders/123/accept';
 
   try {
     final response = await http.post(Uri.parse(url));

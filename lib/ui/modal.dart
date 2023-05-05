@@ -1,38 +1,7 @@
 import 'package:bezel/responsive/responsive_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'api calls/requests.dart';
-
-class WatchModal extends StatelessWidget {
-  const WatchModal({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    late Future<Map> _info;
-
-    return Scaffold(
-        body: Container(
-      color: Color(0xFF17302b),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-              child: GestureDetector(
-                  onTap: () {
-                    _info = fetchInfo();
-                    showDialog(
-                        barrierColor: Colors.transparent,
-                        context: context,
-                        builder: (context) => Modal(
-                              info: _info,
-                            ));
-                  },
-                  child: Image.asset("assets/images/logo.png"))),
-        ],
-      ),
-    ));
-  }
-}
+import '../api calls/requests.dart';
 
 class Modal extends StatefulWidget {
   final Future<Map> info;
@@ -130,7 +99,7 @@ class _ModalState extends State<Modal> {
                                     horizontal: ResponsiveFlutter.of(context)
                                         .verticalScale(1),
                                     vertical:
-                                        ResponsiveFlutter.of(context).scale(4)),
+                                    ResponsiveFlutter.of(context).scale(4)),
                                 child: TextButton(
                                   onPressed: () async {
                                     _status = await acceptOrder();
@@ -143,7 +112,7 @@ class _ModalState extends State<Modal> {
                                   style: TextButton.styleFrom(
                                     primary: Color(0xFFfffcf8), // Text color
                                     backgroundColor:
-                                        Color(0xFF1a3a32), // Background color
+                                    Color(0xFF1a3a32), // Background color
                                     textStyle: TextStyle(
                                         fontSize: ResponsiveFlutter.of(context)
                                             .fontSize(0.80),
@@ -151,8 +120,8 @@ class _ModalState extends State<Modal> {
                                         color: Color(0xFFfffcf8)), // Text size
                                     padding: EdgeInsets.symmetric(
                                         horizontal:
-                                            ResponsiveFlutter.of(context)
-                                                .verticalScale(52),
+                                        ResponsiveFlutter.of(context)
+                                            .verticalScale(52),
                                         vertical: ResponsiveFlutter.of(context)
                                             .scale(42)), // Padding
                                     shape: RoundedRectangleBorder(
@@ -175,8 +144,8 @@ class _ModalState extends State<Modal> {
                                         "Reject Sale",
                                         style: TextStyle(
                                             fontSize:
-                                                ResponsiveFlutter.of(context)
-                                                    .fontSize(0.80),
+                                            ResponsiveFlutter.of(context)
+                                                .fontSize(0.80),
                                             fontWeight: FontWeight.w600,
                                             color: Color(0xFF1a3a32)),
                                       ),
@@ -227,32 +196,32 @@ class _ModalState extends State<Modal> {
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ResponsiveFlutter.of(context)
-                                                    .verticalScale(12)),
+                                            ResponsiveFlutter.of(context)
+                                                .verticalScale(12)),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Column(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
+                                              MainAxisAlignment.spaceAround,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   "${snapshot.data?["listing"]["model"]["displayName"]} ${snapshot.data?["listing"]["model"]["brand"]["displayName"]}",
                                                   style: TextStyle(
                                                       color: Color(0xFF1a3a32),
                                                       fontSize:
-                                                          ResponsiveFlutter.of(
-                                                                  context)
-                                                              .fontSize(0.80),
+                                                      ResponsiveFlutter.of(
+                                                          context)
+                                                          .fontSize(0.80),
                                                       fontWeight:
-                                                          FontWeight.w600),
+                                                      FontWeight.w600),
                                                 ),
                                                 SizedBox(
                                                   height: ResponsiveFlutter.of(
-                                                          context)
+                                                      context)
                                                       .scale(5),
                                                 ),
                                                 Text(
@@ -260,27 +229,27 @@ class _ModalState extends State<Modal> {
                                                   style: TextStyle(
                                                       color: Color(0xFF9da09e),
                                                       fontSize:
-                                                          ResponsiveFlutter.of(
-                                                                  context)
-                                                              .fontSize(0.70),
+                                                      ResponsiveFlutter.of(
+                                                          context)
+                                                          .fontSize(0.70),
                                                       fontWeight:
-                                                          FontWeight.w600),
+                                                      FontWeight.w600),
                                                 )
                                               ],
                                             ),
                                             ClipRRect(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                              BorderRadius.circular(10),
                                               child: Image.network(
                                                 snapshot.data?["listing"]
-                                                        ["images"][0]["image"]
-                                                    ["url"],
+                                                ["images"][0]["image"]
+                                                ["url"],
                                                 fit: BoxFit.fill,
                                                 width: ResponsiveFlutter.of(
-                                                        context)
+                                                    context)
                                                     .verticalScale(35),
                                                 height: ResponsiveFlutter.of(
-                                                        context)
+                                                    context)
                                                     .scale(100),
                                               ),
                                             )
@@ -303,31 +272,31 @@ class _ModalState extends State<Modal> {
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ResponsiveFlutter.of(context)
-                                                    .verticalScale(12),
+                                            ResponsiveFlutter.of(context)
+                                                .verticalScale(12),
                                             vertical:
-                                                ResponsiveFlutter.of(context)
-                                                    .scale(11)),
+                                            ResponsiveFlutter.of(context)
+                                                .scale(11)),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               "Selling Price",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF9da09e)),
                                             ),
                                             Text(
                                               "\$ ${(snapshot.data?["payoutAmountCents"] / 100.0).toStringAsFixed(2)}",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.85),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.85),
                                                   color: Color(0xFF1a3a32),
                                                   fontWeight: FontWeight.w800),
                                             ),
@@ -337,31 +306,31 @@ class _ModalState extends State<Modal> {
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ResponsiveFlutter.of(context)
-                                                    .verticalScale(12),
+                                            ResponsiveFlutter.of(context)
+                                                .verticalScale(12),
                                             vertical:
-                                                ResponsiveFlutter.of(context)
-                                                    .scale(11)),
+                                            ResponsiveFlutter.of(context)
+                                                .scale(11)),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               "Level 1 Commision (${snapshot.data?["commissionRateBips"] / 100.0}%)",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF9da09e)),
                                             ),
                                             Text(
                                               "\$ ${((snapshot.data?["payoutAmountCents"] / 100.0) * (snapshot.data?["commissionRateBips"] / 100.0) / 100.0).toStringAsFixed(2)}",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF9da09e)),
                                             ),
                                           ],
@@ -370,31 +339,31 @@ class _ModalState extends State<Modal> {
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ResponsiveFlutter.of(context)
-                                                    .verticalScale(12),
+                                            ResponsiveFlutter.of(context)
+                                                .verticalScale(12),
                                             vertical:
-                                                ResponsiveFlutter.of(context)
-                                                    .scale(11)),
+                                            ResponsiveFlutter.of(context)
+                                                .scale(11)),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               "Seller Fee",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF9da09e)),
                                             ),
                                             Text(
                                               "\$ ${(snapshot.data?["sellerFeeCents"] / 100.0).toStringAsFixed(2)}",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF9da09e)),
                                             ),
                                           ],
@@ -403,31 +372,31 @@ class _ModalState extends State<Modal> {
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ResponsiveFlutter.of(context)
-                                                    .verticalScale(12),
+                                            ResponsiveFlutter.of(context)
+                                                .verticalScale(12),
                                             vertical:
-                                                ResponsiveFlutter.of(context)
-                                                    .scale(11)),
+                                            ResponsiveFlutter.of(context)
+                                                .scale(11)),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               "Insured Shipping",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF9da09e)),
                                             ),
                                             Text(
                                               "Free",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF9da09e)),
                                             ),
                                           ],
@@ -436,31 +405,31 @@ class _ModalState extends State<Modal> {
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ResponsiveFlutter.of(context)
-                                                    .verticalScale(12),
+                                            ResponsiveFlutter.of(context)
+                                                .verticalScale(12),
                                             vertical:
-                                                ResponsiveFlutter.of(context)
-                                                    .scale(11)),
+                                            ResponsiveFlutter.of(context)
+                                                .scale(11)),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               "Bezel Authentication",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xff29846f)),
                                             ),
                                             Text(
                                               "Free",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xff29846f)),
                                             ),
                                           ],
@@ -469,33 +438,33 @@ class _ModalState extends State<Modal> {
                                       Padding(
                                           padding: EdgeInsets.symmetric(
                                               horizontal:
-                                                  ResponsiveFlutter.of(context)
-                                                      .verticalScale(12),
+                                              ResponsiveFlutter.of(context)
+                                                  .verticalScale(12),
                                               vertical:
-                                                  ResponsiveFlutter.of(context)
-                                                      .scale(11)),
+                                              ResponsiveFlutter.of(context)
+                                                  .scale(11)),
                                           child: Divider(
                                             thickness: 1.5,
                                           )),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ResponsiveFlutter.of(context)
-                                                    .verticalScale(12),
+                                            ResponsiveFlutter.of(context)
+                                                .verticalScale(12),
                                             vertical:
-                                                ResponsiveFlutter.of(context)
-                                                    .scale(11)),
+                                            ResponsiveFlutter.of(context)
+                                                .scale(11)),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               "Earnings",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF1a3a32),
                                                   fontWeight: FontWeight.w800),
                                             ),
@@ -503,9 +472,9 @@ class _ModalState extends State<Modal> {
                                               "\$${(snapshot.data?["salePriceCents"] / 100.0).toStringAsFixed(2)}",
                                               style: TextStyle(
                                                   fontSize:
-                                                      ResponsiveFlutter.of(
-                                                              context)
-                                                          .fontSize(0.80),
+                                                  ResponsiveFlutter.of(
+                                                      context)
+                                                      .fontSize(0.80),
                                                   color: Color(0xFF1a3a32),
                                                   fontWeight: FontWeight.w800),
                                             ),
@@ -544,7 +513,7 @@ class _ModalState extends State<Modal> {
                   // By default, show a loading spinner.
                   return Center(
                       child:
-                          CircularProgressIndicator(color: Color(0xFF1a3a32)));
+                      CircularProgressIndicator(color: Color(0xFF1a3a32)));
                 },
               ),
               Padding(
@@ -565,62 +534,62 @@ class _ModalState extends State<Modal> {
               if (_showAnimation)
                 Positioned.fill(
                     child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _showAnimation = false;
-                    });
-                    if (_status != 0) Navigator.pop(context);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.black.withOpacity(0.75),
-                    ),
-                    child: Center(
-                        child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _status != 0
-                            ? Lottie.asset(
-                                "assets/animations/green_tick.json",
-                                repeat: false,
-                                height: ResponsiveFlutter.of(context)
-                                    .verticalScale(100),
-                                width: ResponsiveFlutter.of(context).scale(200),
-                              )
-                            : Lottie.asset("assets/animations/failed.json",
-                                repeat: false,
-                                height: ResponsiveFlutter.of(context)
-                                    .verticalScale(100),
-                                width:
+                      onTap: () {
+                        setState(() {
+                          _showAnimation = false;
+                        });
+                        if (_status != 0) Navigator.pop(context);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.black.withOpacity(0.75),
+                        ),
+                        child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                _status != 0
+                                    ? Lottie.asset(
+                                  "assets/animations/green_tick.json",
+                                  repeat: false,
+                                  height: ResponsiveFlutter.of(context)
+                                      .verticalScale(100),
+                                  width: ResponsiveFlutter.of(context).scale(200),
+                                )
+                                    : Lottie.asset("assets/animations/failed.json",
+                                    repeat: false,
+                                    height: ResponsiveFlutter.of(context)
+                                        .verticalScale(100),
+                                    width:
                                     ResponsiveFlutter.of(context).scale(200)),
-                        Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: _status == 1
-                                ? Text(
-                                    "Sale Successfully Accepted",
-                                    style: TextStyle(
-                                        color: Color(0xFFfffcf8),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700),
-                                  )
-                                : _status == 2
-                                    ? Text("Sale Successfully Rejected",
+                                Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: _status == 1
+                                        ? Text(
+                                      "Sale Successfully Accepted",
+                                      style: TextStyle(
+                                          color: Color(0xFFfffcf8),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                        : _status == 2
+                                        ? Text("Sale Successfully Rejected",
                                         style: TextStyle(
                                             color: Color(0xFFfffcf8),
                                             fontSize: 20,
                                             fontWeight: FontWeight.w700))
-                                    : Text(
-                                        "Something went wrong, try again!",
-                                        style: TextStyle(
-                                            color: Color(0xFFfffcf8),
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700),
-                                      ))
-                      ],
+                                        : Text(
+                                      "Something went wrong, try again!",
+                                      style: TextStyle(
+                                          color: Color(0xFFfffcf8),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700),
+                                    ))
+                              ],
+                            )),
+                      ),
                     )),
-                  ),
-                )),
             ],
           ),
         ));

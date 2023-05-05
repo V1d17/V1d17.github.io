@@ -1,4 +1,4 @@
-import 'package:bezel/watch_modal.dart';
+import 'package:bezel/ui/home.dart';
 
 import 'package:flutter/material.dart';
 
